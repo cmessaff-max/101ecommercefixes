@@ -38,6 +38,8 @@ const customAuthTables = {
 };
 
 export default defineSchema({
-  ...customAuthTables,
-  ...applicationTables,
+  subscribers: defineTable({
+    email: v.string(),
+    createdAt: v.number()
+  }).index("by_email", ["email"])
 });
